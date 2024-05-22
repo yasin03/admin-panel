@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/sidebar";
-import { HeadersAdapter } from "next/dist/server/web/spec-extension/adapters/headers";
 import Header from "@/components/header";
 import PageWrapper from "@/components/pageWrapper";
-import { useState } from "react";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +19,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en">
       <body className={inter.className}>
         <div className="flex min-h-screen">
-          <Sidebar  />
-          <Header
-          />
-          <PageWrapper>{children}</PageWrapper>
+          <Sidebar />
+          <Header />
+          <PageWrapper>
+            <AntdRegistry>{children}</AntdRegistry>
+          </PageWrapper>
         </div>
       </body>
     </html>

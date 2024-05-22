@@ -8,9 +8,9 @@ const Sidebar = () => {
   const toggleSidebar = useMenuStore((state) => state.toggleSidebar);
   return (
     <aside
-      className={`fixed bg-slate-800 h-full w-[15rem] ${
-        toggleSidebar ? "w-[5rem]" : ""
-      } shadow-md transition duration-300 ease-in-out`}
+      className={`fixed bg-slate-800 h-full ${
+        toggleSidebar ? "w-[5rem]" : "w-[15rem]"
+      } shadow-md transition duration-1000 ease-in-out`}
     >
       <div
         className={`flex relative items-center ${

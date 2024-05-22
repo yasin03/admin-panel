@@ -1,8 +1,12 @@
 import React from "react";
 import { SideNavItem } from "../types/types";
-import { LuHome } from "react-icons/lu";
-import { LuUsers2 } from "react-icons/lu";
-import { LuXSquare } from "react-icons/lu";
+import {
+  LuHome,
+  LuUsers2,
+  LuXSquare,
+  LuSquareDashedBottomCode,
+  LuRepeat,
+} from "react-icons/lu";
 
 export const sideNavItems: SideNavItem[] = [
   {
@@ -16,9 +20,14 @@ export const sideNavItems: SideNavItem[] = [
     icon: <LuUsers2 size={20} />,
   },
   {
-    title: "Employee",
-    path: "/employee",
-    icon: <LuHome size={20} />,
+    title: "Ongoing Courses",
+    path: "/ongoing-courses",
+    icon: <LuRepeat size={20} />,
+  },
+  {
+    title: "Upcoming Courses",
+    path: "/upcoming-courses",
+    icon: <LuSquareDashedBottomCode size={20} />,
   },
   {
     title: "Exit",
