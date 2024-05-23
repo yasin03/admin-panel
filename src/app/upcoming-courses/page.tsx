@@ -1,16 +1,19 @@
 "use client";
+import Title from "@/components/title";
 import useMenuStore from "@/store/menu-store";
-import { Table } from "antd";
-import React from "react";
+import { DashboardData } from "@/types/types";
+import { Table, TableProps } from "antd";
+import React, { useState } from "react";
 
-const Page = () => {
+const Page: React.FC = () => {
   const dashboardData = useMenuStore((state) => state.dashboardData);
-  
-  const columns = [
+  const [expandedRowKeys, setExpandedRowKeys] = useState<React.Key[]>([]);
+
+  const columns: TableProps<DashboardData>["columns"] = [
     {
       title: "Title",
       dataIndex: "title",
-      key:"title"
+      key: "title",
     },
     {
       title: "Date",
@@ -22,22 +25,39 @@ const Page = () => {
       dataIndex: "assigned_to",
       key: "assigned_to",
     },
+
     {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      render: (_: any, record: DashboardData) => {
+        return <p>{record?.description.slice(0, 20) + "..."}</p>;
+      },
     },
+    Table.EXPAND_COLUMN,
     {
       title: "Status",
       dataIndex: "status",
       key: "status",
+      render: (_: any, record: DashboardData) => {
+        return <p className="bg-red-300 p-2 rounded-lg w-24">{record?.status}</p>;
+      },
     },
   ];
+
   return (
     <div>
-      Upcoming Courses
+      <Title title="Upcoming Courses" />
       <div className="shadow-md m-12">
-        <Table dataSource={dashboardData?.upcoming_courses} columns={columns} />
+        <Table
+          dataSource={dashboardData?.upcoming_courses}
+          columns={columns}
+          expandable={{
+            expandedRowRender: (record) => (
+              <p style={{ margin: 0 }}>{record.description}</p>
+            ),
+          }}
+        />
       </div>
     </div>
   );

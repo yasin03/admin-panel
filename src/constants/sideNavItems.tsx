@@ -3,9 +3,10 @@ import { SideNavItem } from "../types/types";
 import {
   LuHome,
   LuUsers2,
-  LuXSquare,
+  LuPower,
   LuSquareDashedBottomCode,
   LuRepeat,
+  LuPencilRuler,
 } from "react-icons/lu";
 
 export const sideNavItems: SideNavItem[] = [
@@ -30,8 +31,13 @@ export const sideNavItems: SideNavItem[] = [
     icon: <LuSquareDashedBottomCode size={20} />,
   },
   {
+    title: "Top Skills",
+    path: "/skills",
+    icon: <LuPencilRuler size={20} />,
+  },
+  {
     title: "Exit",
     path: "/exit",
-    icon: <LuXSquare size={20} />,
+    icon: <LuPower size={20} />,
   },
 ];

@@ -1,6 +1,11 @@
 import useMenuStore from "@/store/menu-store";
 import React, { Dispatch, SetStateAction } from "react";
-import { LuAlignJustify, LuUserCircle2, LuX } from "react-icons/lu";
+import {
+  LuAlignJustify,
+  LuUserCircle2,
+  LuX,
+  LuChevronDown,
+} from "react-icons/lu";
 
 const Header = () => {
   const toggleSidebar = useMenuStore((state) => state.toggleSidebar);
@@ -12,9 +17,9 @@ const Header = () => {
     <header
       className={`absolute right-0 ${
         toggleSidebar ? "left-[5rem]" : "left-[15rem]"
-      }  bg-slate-800 px-4  shadow-md transition-all`}
+      }  bg-slate-800  shadow-md transition-all`}
     >
-      <div className="flex items-center justify-between h-16 transition-all">
+      <div className="flex items-center justify-between ml-4 h-16 transition-all">
         <button onClick={() => setToggleSidebar(!toggleSidebar)}>
           {toggleSidebar ? (
             <LuX size={25} className={buttonStyle} />
@@ -22,8 +27,10 @@ const Header = () => {
             <LuAlignJustify size={25} className={buttonStyle} />
           )}
         </button>
-        <button>
-          <LuUserCircle2 size={25} className={buttonStyle} />
+        <button className="bg-red-600 h-full w-60 px-4 flex justify-evenly items-center hover:bg-red-500 transition-all">
+          <LuUserCircle2 size={35} className={buttonStyle} />
+          <span className="text-lg font-medium text-gray-100">Yasin Türk</span>
+          <LuChevronDown size={25} className={buttonStyle} />
         </button>
       </div>
     </header>

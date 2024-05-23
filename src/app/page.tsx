@@ -1,29 +1,9 @@
-"use client";
-import { getDashboardData } from "@/api/service";
+"use client"
 import useMenuStore from "@/store/menu-store";
-import axios from "axios";
-import { useEffect } from "react";
 import { LuCheckSquare, LuPlusCircle, LuUsers } from "react-icons/lu";
-
-async function fetchData() {
-  const res = await axios.get(`https://demotrainiq.com/case/dashboard`);
-  return res.data.data;
-}
 
 function Home() {
   const dashboardData = useMenuStore((state) => state.dashboardData);
-  const setDashboardData = useMenuStore((state) => state.setDashboardData);
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchData();
-      setDashboardData(data);
-    };
-
-    getData();
-  }, [setDashboardData]);
-
-  console.log(dashboardData);
 
   const boxStyle =
     "w-1/4 p-6 rounded-xl flex justify-between items-center gap-12 h-36";

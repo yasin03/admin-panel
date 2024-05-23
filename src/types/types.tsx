@@ -5,3 +5,12 @@ export type SideNavItem = {
   submenu?: boolean;
   submenuItems?: SideNavItem[];
 };
+
+export interface DashboardData {
+  title: string;
+  due_date: string;
+  assigned_to: string;
+  description: string;
+  status: string;
+  key: string;
+}

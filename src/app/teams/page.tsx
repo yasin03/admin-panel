@@ -1,9 +1,12 @@
-import React from 'react'
+import Title from "@/components/title";
+import React from "react";
 
 const Page = () => {
   return (
-    <div>Teams Page</div>
-  )
-}
+    <div>
+      <Title title="Teams" />
+    </div>
+  );
+};
 
-export default Page
+export default Page;

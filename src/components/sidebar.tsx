@@ -13,13 +13,13 @@ const Sidebar = () => {
       } shadow-md transition duration-1000 ease-in-out`}
     >
       <div
-        className={`flex relative items-center ${
+        className={`flex relative items-center gap-2 border-b-[1px] border-b-gray-500 h-16 ${
           toggleSidebar ? "justify-center" : ""
         } py-5 px-3`}
       >
-        <LuCherry className="text-rose-600 w-10 h-10" />
+        <LuCherry className="text-red-600 w-9 h-9" />
         <h3 className="pl-2  text-xl text-white min-w-max">
-          {!toggleSidebar && <span className=" font-bold">Admin Panel</span>}
+          {!toggleSidebar && <span className="">Admin Panel</span>}
         </h3>
       </div>
       <nav className="mt-12">
