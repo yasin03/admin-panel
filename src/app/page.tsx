@@ -45,8 +45,8 @@ function Home() {
   const dashboardData = useMenuStore((state) => state.dashboardData);
 
   return (
-    <main className="p-4">
-      <div className="flex flex-wrap justify-evenly gap-4 text-gray-500">
+    <main>
+      <div className="flex flex-wrap justify-evenly gap-4 text-gray-500 p-4">
         <CustomBox
           icon={LuCheckSquare}
           title="Total Completed Course"

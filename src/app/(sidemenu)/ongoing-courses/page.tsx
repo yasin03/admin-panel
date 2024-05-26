@@ -7,7 +7,6 @@ import React, { useState } from "react";
 
 const Page: React.FC = () => {
   const dashboardData = useMenuStore((state) => state.dashboardData);
-  const [expandedRowKeys, setExpandedRowKeys] = useState<React.Key[]>([]);
 
   const columns: TableProps<DashboardData>["columns"] = [
     {

@@ -8,6 +8,7 @@ import {
   LuRepeat,
   LuPencilRuler,
   LuArrowDown10,
+  LuClock3,
 } from "react-icons/lu";
 
 export const sideNavItems: SideNavItem[] = [
@@ -20,6 +21,11 @@ export const sideNavItems: SideNavItem[] = [
     title: "Teams",
     path: "/teams",
     icon: <LuUsers2 size={20} />,
+  },
+  {
+    title: "Activity Hours",
+    path: "/activity-hours",
+    icon: <LuClock3 size={20} />,
   },
   {
     title: "Ongoing Courses",
@@ -43,7 +49,7 @@ export const sideNavItems: SideNavItem[] = [
   },
   {
     title: "Exit",
-    path: "/exit",
+    path: "https://www.google.com.tr/",
     icon: <LuPower size={20} />,
   },
 ];

@@ -1,11 +1,37 @@
 import useMenuStore from "@/store/menu-store";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import {
   LuAlignJustify,
   LuUserCircle2,
   LuX,
   LuChevronDown,
 } from "react-icons/lu";
+import {
+  SettingOutlined,
+  ProfileOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Dropdown, Space } from "antd";
+import Link from "next/link";
+
+const items: MenuProps["items"] = [
+  {
+    key: "1",
+    label: <Link href="/user-profile">Profile</Link>,
+    icon: <ProfileOutlined />,
+  },
+  {
+    key: "2",
+    label: <Link href="/user-settings">Settings</Link>,
+    icon: <SettingOutlined />,
+  },
+  {
+    key: "3",
+    label: <Link href="https://www.google.com.tr">Signout</Link>,
+    icon: <LogoutOutlined />,
+  },
+];
 
 const Header = () => {
   const toggleSidebar = useMenuStore((state) => state.toggleSidebar);
@@ -27,16 +53,22 @@ const Header = () => {
             <LuAlignJustify size={25} className={buttonStyle} />
           )}
         </button>
-        <button className="bg-red-600 h-full w-12 md:w-60 px-3 md:px-4 flex justify-evenly items-center hover:bg-red-500 transition-all">
-          <LuUserCircle2 size={35} className={buttonStyle} />
-          <span className="hidden md:inline-flex text-lg font-medium text-gray-100">
-            Yasin Türk
-          </span>
-          <LuChevronDown
-            size={25}
-            className={`${buttonStyle} hidden md:inline-flex`}
-          />
-        </button>
+
+        <Dropdown menu={{ items }}>
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="bg-red-600 h-full w-12 md:w-60 px-3 md:px-4 flex justify-evenly items-center hover:bg-red-500 transition-all"
+          >
+            <LuUserCircle2 size={35} className={buttonStyle} />
+            <span className="hidden md:inline-flex text-lg font-medium text-gray-100">
+              Yasin Türk
+            </span>
+            <LuChevronDown
+              size={25}
+              className={`${buttonStyle} hidden md:inline-flex`}
+            />
+          </button>
+        </Dropdown>
       </div>
     </header>
   );

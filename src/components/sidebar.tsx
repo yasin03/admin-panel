@@ -10,12 +10,12 @@ const Sidebar = () => {
     <aside
       className={`fixed bg-slate-800 h-full ${
         toggleSidebar ? "w-[5rem]" : "w-[15rem]"
-      } shadow-md transition duration-1000 ease-in-out`}
+      } shadow-md transition-all duration-500`}
     >
       <div
         className={`flex relative items-center gap-2 border-b-[1px] border-b-gray-500 h-16 ${
           toggleSidebar ? "justify-center" : ""
-        } py-5 px-3`}
+        } py-5 px-3 transition-all duration-500`}
       >
         <LuCherry className="text-red-600 w-9 h-9" />
         <h3 className="pl-2  text-xl text-white min-w-max">
