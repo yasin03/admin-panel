@@ -40,7 +40,7 @@ const Page: React.FC = () => {
       chartRef.current = chart;
     },
     tooltip: {
-      customContent: (title:any, items:any) => {
+      customContent: (title: any, items: any) => {
         if (items && items.length) {
           const { data } = items[0];
           const currentScore =
@@ -65,8 +65,12 @@ const Page: React.FC = () => {
     },
   };
 
+  const truncate = (text: string, length: number) => {
+    return text.length > length ? text.substring(0, length) + "..." : text;
+  };
+
   const expandedRowRender = (team: Team) => {
-    const columns = [
+    const employeeColumns = [
       { title: "Name", dataIndex: "name", key: "name" },
       { title: "Title", dataIndex: "title", key: "title" },
       { title: "Email", dataIndex: "email", key: "email" },
@@ -91,12 +95,17 @@ const Page: React.FC = () => {
     ];
 
     return (
-      <Table
-        columns={columns}
-        dataSource={team.employees}
-        pagination={false}
-        rowKey="email"
-      />
+      <div>
+        <p>
+          <strong>Description:</strong> {team.description}
+        </p>
+        <Table
+          columns={employeeColumns}
+          dataSource={team.employees}
+          pagination={false}
+          rowKey="email"
+        />
+      </div>
     );
   };
 
@@ -110,6 +119,7 @@ const Page: React.FC = () => {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      render: (text: string) => truncate(text, 100), // Limit description to 100 characters
     },
     {
       title: "Overall Score",
@@ -125,7 +135,7 @@ const Page: React.FC = () => {
 
   return (
     <div>
-      <Title title="Employee Details" />
+      <Title title="Team and Employee Details" />
       <div className="mx-12">
         <Column {...config} />
       </div>
