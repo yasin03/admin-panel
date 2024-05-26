@@ -27,10 +27,15 @@ const Header = () => {
             <LuAlignJustify size={25} className={buttonStyle} />
           )}
         </button>
-        <button className="bg-red-600 h-full w-60 px-4 flex justify-evenly items-center hover:bg-red-500 transition-all">
+        <button className="bg-red-600 h-full w-12 md:w-60 px-3 md:px-4 flex justify-evenly items-center hover:bg-red-500 transition-all">
           <LuUserCircle2 size={35} className={buttonStyle} />
-          <span className="text-lg font-medium text-gray-100">Yasin Türk</span>
-          <LuChevronDown size={25} className={buttonStyle} />
+          <span className="hidden md:inline-flex text-lg font-medium text-gray-100">
+            Yasin Türk
+          </span>
+          <LuChevronDown
+            size={25}
+            className={`${buttonStyle} hidden md:inline-flex`}
+          />
         </button>
       </div>
     </header>

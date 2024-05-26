@@ -7,6 +7,7 @@ import {
   LuSquareDashedBottomCode,
   LuRepeat,
   LuPencilRuler,
+  LuArrowDown10,
 } from "react-icons/lu";
 
 export const sideNavItems: SideNavItem[] = [
@@ -34,6 +35,11 @@ export const sideNavItems: SideNavItem[] = [
     title: "Top Skills",
     path: "/skills",
     icon: <LuPencilRuler size={20} />,
+  },
+  {
+    title: "Top Employees",
+    path: "/top-employees",
+    icon: <LuArrowDown10 size={20} />,
   },
   {
     title: "Exit",
