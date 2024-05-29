@@ -1,9 +1,15 @@
 "use client";
 import Title from "@/components/title";
 import useMenuStore from "@/store/menu-store";
-import { Column, ColumnConfig } from "@ant-design/charts";
+import {  ColumnConfig } from "@ant-design/charts";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+
+const Column = dynamic(
+  () => import("@ant-design/charts").then((mod) => mod.Column),
+  { ssr: false }
+);
 
 interface DataItem {
   employees: number;
@@ -85,7 +91,7 @@ const Page: React.FC = () => {
     <div>
       <Title title="Top Skills" />
       <div className="mx-12">
-        <Column {...config} />
+        {typeof window !== "undefined" && <Column {...config} />}
       </div>
     </div>
   );
