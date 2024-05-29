@@ -39,8 +39,17 @@ bun dev
 - Next.js
 - TypeScript
 - Tailwind CSS
+- Axios (for HTTP request)
+- Zustand (for state management)
 - Ant Design
+- Ant Design Charts
 - React Icons
+
+## Ekran Görüntüleri
+
+![Ana Sayfa](public/ss/ss3.png)
+_Ana Sayfa_
+
 
 ## Learn More
 

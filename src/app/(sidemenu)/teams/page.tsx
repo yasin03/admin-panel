@@ -25,7 +25,7 @@ interface Team {
 const Page: React.FC = () => {
   const dashboardData = useMenuStore((state) => state.dashboardData);
 
-  const teams: Team[] = dashboardData?.teams || [];
+  const teams: Team[] = dashboardData?.teams || null;
 
   const data: Employee[] = teams.flatMap((team) => team.employees);
 

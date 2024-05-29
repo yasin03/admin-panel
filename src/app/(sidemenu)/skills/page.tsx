@@ -18,7 +18,7 @@ interface LogoItem {
 const Page: React.FC = () => {
   const dashboardData = useMenuStore((state) => state.dashboardData);
 
-  const data: DataItem[] = dashboardData?.top_skills || [];
+  const data: DataItem[] = dashboardData?.top_skills || null;
 
   const logos: LogoItem[] = [
     {
@@ -37,7 +37,6 @@ const Page: React.FC = () => {
       name: "Java",
       url: "https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png",
     },
-
   ];
 
   const chartRef = useRef<any>();
@@ -80,7 +79,7 @@ const Page: React.FC = () => {
     <div>
       <Title title="Top Skills" />
       <div className="mx-12">
-        <Column {...config}/>
+        <Column {...config} />
       </div>
     </div>
   );
