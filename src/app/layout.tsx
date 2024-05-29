@@ -6,7 +6,6 @@ import Sidebar from "@/components/sidebar";
 import Header from "@/components/header";
 import PageWrapper from "@/components/pageWrapper";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import axios from "axios";
 import { useEffect } from "react";
 import useMenuStore from "@/store/menu-store";
 import { getDashboardData } from "@/api/service";

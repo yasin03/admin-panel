@@ -3,7 +3,7 @@ import Title from "@/components/title";
 import useMenuStore from "@/store/menu-store";
 import { Column, ColumnConfig } from "@ant-design/charts";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface DataItem {
   employees: number;
@@ -18,7 +18,13 @@ interface LogoItem {
 const Page: React.FC = () => {
   const dashboardData = useMenuStore((state) => state.dashboardData);
 
-  const data: DataItem[] = dashboardData?.top_skills || null;
+  const [data, setData] = useState<DataItem[]>([]);
+
+  useEffect(() => {
+    if (dashboardData) {
+      setData(dashboardData.dashboardData?.top_skills);
+    }
+  }, [dashboardData]);
 
   const logos: LogoItem[] = [
     {
