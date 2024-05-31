@@ -1,8 +1,14 @@
 "use client";
 import Title from "@/components/title";
 import useMenuStore from "@/store/menu-store";
-import { Column, ColumnConfig } from "@ant-design/charts";
+import { ColumnConfig } from "@ant-design/charts";
+import dynamic from "next/dynamic";
 import React, { useRef } from "react";
+
+const Column = dynamic(
+  () => import("@ant-design/charts").then((mod) => mod.Column),
+  { ssr: false }
+);
 
 interface DataItem {
   current_score: number;
